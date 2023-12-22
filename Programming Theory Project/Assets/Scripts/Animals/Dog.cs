@@ -5,9 +5,9 @@ using UnityEngine;
 public class Dog : Animal
 {
     // POLYMORPHISM -COURSE-.
-    protected override void Awake()
+    protected override void InitialParameters()
     {
-        base.Awake();
+        base.InitialParameters();
         interestPoint = GameObject.Find("DogInterestPoint").transform;
     }
 

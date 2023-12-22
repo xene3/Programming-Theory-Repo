@@ -6,9 +6,9 @@ public class Cat : Animal
 {
 
     //POLYMORPHISM -COURSE-.
-    protected override void Awake()
+    protected override void InitialParameters()
     {
-        base.Awake();
+        base.InitialParameters();
         minAnimalTemperature = 15;
         minHeatRange = 30;
         interestPoint = GameObject.Find("CatInterestPoint").transform;

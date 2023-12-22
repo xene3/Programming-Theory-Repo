@@ -17,10 +17,7 @@ public class Animal : MonoBehaviour
     private float m_minAnimalTemperature;
     public float minAnimalTemperature
     {
-        get
-        {
-            return m_minAnimalTemperature;
-        }
+        get { return m_minAnimalTemperature;}
 
         set
         {
@@ -37,15 +34,10 @@ public class Animal : MonoBehaviour
 
     [SerializeField] bool isInShadow; //ToLowTemperature
 
-    protected virtual void Awake()
+    private void Awake()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        animalNavController = GameObject.Find("IA Positions").GetComponent<AnimalNavController>();
-
-        m_minAnimalTemperature = 20;
-        animalTemperature = minAnimalTemperature;
-        minHeatRange = 35;
-        maxHeatRange = 40;
+        //ABSTRACTION -COURSE-.
+        InitialParameters();
     }
 
     private void Start()
@@ -104,6 +96,17 @@ public class Animal : MonoBehaviour
         {
             isInShadow = true;
         }
+    }
+
+    protected virtual void InitialParameters()
+    {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        animalNavController = GameObject.Find("IA Positions").GetComponent<AnimalNavController>();
+
+        m_minAnimalTemperature = 20;
+        animalTemperature = minAnimalTemperature;
+        minHeatRange = 35;
+        maxHeatRange = 40;
     }
 
 }
