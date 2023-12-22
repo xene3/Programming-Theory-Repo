@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dog : MonoBehaviour
+public class Dog : Animal
 {
-    // Start is called before the first frame update
-    void Start()
+    // POLYMORPHISM -COURSE-.
+    protected override void Awake()
     {
-        
+        base.Awake();
+        interestPoint = GameObject.Find("DogInterestPoint").transform;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

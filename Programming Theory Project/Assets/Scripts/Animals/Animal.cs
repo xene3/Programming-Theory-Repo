@@ -12,7 +12,24 @@ public class Animal : MonoBehaviour
     private AnimalNavController animalNavController; //FOR ALL POSITIONS
 
     [SerializeField] protected float animalTemperature;
-    [SerializeField] protected float minAnimalTemperature;
+
+    //ENCAPSULATION -COURSE-.
+    private float m_minAnimalTemperature;
+    public float minAnimalTemperature
+    {
+        get
+        {
+            return m_minAnimalTemperature;
+        }
+
+        set
+        {
+            if(value < 0.0f)
+            {
+                Debug.LogError("Minimal animal temperature can't be less than 0 C°!");
+            }
+        }
+    }
     [SerializeField] protected float minHeatRange;
     [SerializeField] protected float maxHeatRange;
 
@@ -25,7 +42,7 @@ public class Animal : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         animalNavController = GameObject.Find("IA Positions").GetComponent<AnimalNavController>();
 
-        minAnimalTemperature = 20;
+        m_minAnimalTemperature = 20;
         animalTemperature = minAnimalTemperature;
         minHeatRange = 35;
         maxHeatRange = 40;
